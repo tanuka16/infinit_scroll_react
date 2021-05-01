@@ -38,7 +38,7 @@ function useSearch(query, pageNumber) {
         return [...new Set([...prevBooks, ...res.data.docs.map(b => b.title)])]
       })
       // no more data, so no books to return
-      hasMore(res.data.docs.length > 0)
+      setHasMore(res.data.docs.length > 0)
       // not loading more data so set to false
       setLoading(false)
       console.log(res.data)

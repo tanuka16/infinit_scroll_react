@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import useSearch from './useSearch'
-
+// useRef persistes a value after each render 
 function App() {
   // useState returns a query & a function to set that Query, which'll rerender application
   const [query, setQuery] = useState('')
@@ -21,7 +21,7 @@ function App() {
   } = useSearch(query, pageNumber)
   return (
     <>
-      <input type="text" onChange={handleSearch}></input>
+      <input type="text" value={query} onChange={handleSearch}></input>
 
       {books.map(book =>{
         return <div key={book}> {book} </div>
